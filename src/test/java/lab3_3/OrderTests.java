@@ -46,4 +46,13 @@ public class OrderTests {
         assertThat(order.getOrderState(), is(not(equalTo(State.CONFIRMED))));
     }
 
+    @Test
+    public void shouldSubmitOnOrderWith24H() {
+        fakeClock.addDateToReturn(2019, 1, 2, 2, 2);
+        fakeClock.addDateToReturn(2019, 1, 3, 2, 2);
+        order.submit();
+        order.confirm();
+        assertThat(order.getOrderState(), is(not(equalTo(State.CONFIRMED))));
+    }
+
 }
