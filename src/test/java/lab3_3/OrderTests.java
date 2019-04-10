@@ -43,7 +43,7 @@ public class OrderTests {
         fakeClock.addDateToReturn(2019, 1, 2, 3, 2);
         order.submit();
         order.confirm();
-        assertThat(order.getOrderState(), is(not(equalTo(State.CONFIRMED))));
+        assertThat(order.getOrderState(), is(not(equalTo(State.CANCELLED))));
     }
 
     @Test
@@ -52,7 +52,7 @@ public class OrderTests {
         fakeClock.addDateToReturn(2019, 1, 3, 2, 2);
         order.submit();
         order.confirm();
-        assertThat(order.getOrderState(), is(not(equalTo(State.CONFIRMED))));
+        assertThat(order.getOrderState(), is(not(equalTo(State.CANCELLED))));
     }
 
 }
